@@ -6,9 +6,28 @@ export const Container = styled.SafeAreaView`
   align-items: center;
 `;
 
+export const FilterContainer = styled.View`
+  margin-top: 60px;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+`;
+
+export const FilterButton = styled.TouchableOpacity`
+  border: 1px solid #333;
+  padding: 10px;
+  border-radius: 6px;
+`;
+
+export const FilterText = styled.Text`
+  font-weight: bold;
+  font-size: 16px;
+  color: #e83f5b;
+`;
+
 export const ProductContainer = styled.SafeAreaView`
   border-radius: 5px;
-  margin-top: 60px;
+  margin-top: 10px;
   flex: 1;
   flex-direction: row;
 `;
@@ -39,6 +58,11 @@ export const ProductTitle = styled.Text`
   margin-top: 10px;
 `;
 
+export const ProductScore = styled.Text`
+  font-size: 14px;
+  margin-top: 10px;
+`;
+
 export const PriceContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
@@ -53,4 +77,11 @@ export const ProductPrice = styled.Text`
   color: #e83f5b;
 `;
 
-export const ProductButton = styled.TouchableOpacity``;
+export const ProductButton = styled.TouchableOpacity`
+  padding: 8px;
+`;
+
+export const ProductButtonText = styled.Text`
+  font-size: 24px;
+  font-weight: bold;
+`;

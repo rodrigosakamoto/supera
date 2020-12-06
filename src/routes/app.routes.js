@@ -1,34 +1,63 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {NavigationContainer} from '@react-navigation/native';
 
-import {Text} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
+
+import CartIcon from '../assets/cart-icon-red.svg';
 
 import Dashboard from '../pages/Dashboard';
+import Cart from '../pages/Cart';
 
 const App = createStackNavigator();
 
 const AppRoutes = () => {
   return (
-    <NavigationContainer>
-      <App.Navigator
-        screenOptions={{
+    <App.Navigator
+      screenOptions={{
+        headerShown: true,
+        cardStyle: {backgroundColor: '#EBEEF8'},
+      }}
+      initialRouteName="Dashboard">
+      <App.Screen
+        options={{
           headerShown: true,
-          cardStyle: {backgroundColor: '#EBEEF8'},
+          headerTransparent: true,
+          headerTitle: () => (
+            <View style={styles.container}>
+              <CartIcon width="32" />
+              <Text style={styles.text}>SuperaCommerce</Text>
+            </View>
+          ),
         }}
-        initialRouteName="Dashboard">
-        <App.Screen
-          options={{
-            headerShown: true,
-            headerTransparent: true,
-            headerTitle: () => <Text>SuperaCommerce</Text>,
-          }}
-          name="Dashboard"
-          component={Dashboard}
-        />
-      </App.Navigator>
-    </NavigationContainer>
+        name="Dashboard"
+        component={Dashboard}
+      />
+      <App.Screen
+        options={{
+          headerTransparent: true,
+          headerTitle: () => (
+            <View style={styles.container}>
+              <CartIcon width="32" />
+              <Text style={styles.text}>SuperaCommerce</Text>
+            </View>
+          ),
+        }}
+        name="Cart"
+        component={Cart}
+      />
+    </App.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 24,
+    marginLeft: 8,
+  },
+});
 
 export default AppRoutes;
